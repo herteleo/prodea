@@ -1,0 +1,10 @@
+{
+  "extends": "@tsconfig/node21/tsconfig.json",
+  "compilerOptions": {
+    "module": "ES2020",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "outDir": "dist"
+  },
+  "include": ["**/*"]
+}

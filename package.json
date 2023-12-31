@@ -1,0 +1,65 @@
+{
+  "name": "prodea",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "Manage multiple projects within a single git repository using worktrees. Designed for prototyping, learning and private projects.",
+  "author": {
+    "name": "Leonard Hertel",
+    "email": "leonard.hertel@gmail.com",
+    "url": "https://herteleo.de"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/herteleo/prodea#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/herteleo/prodea.git"
+  },
+  "keywords": [
+    "Monorepo",
+    "Management",
+    "CLI",
+    "Organize",
+    "Prototye",
+    "Private",
+    "DX",
+    "Git",
+    "Worktree"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/cli.mjs"
+    }
+  },
+  "bin": {
+    "prodea": "dist/cli.mjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "postversion": "npm run build"
+  },
+  "dependencies": {
+    "c12": "^1.5.1",
+    "citty": "^0.1.5",
+    "consola": "^3.2.3",
+    "rc9": "^2.1.1",
+    "scule": "^1.1.1",
+    "simple-git": "^3.21.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.6.1",
+    "@tsconfig/node21": "^21.0.1",
+    "@types/node": "^20.10.6",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "unbuild": "^2.0.0"
+  }
+}
