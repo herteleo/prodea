@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/prodea?style=flat)](https://npmjs.com/package/prodea)
 [![npm downloads](https://img.shields.io/npm/dm/prodea?style=flat)](https://npmjs.com/package/prodea)
 [![bundle size](https://img.shields.io/bundlephobia/minzip/prodea?style=flat)](https://bundlephobia.com/result?p=prodea)
-[![license](https://img.shields.io/github/license/prodea?style=flat)](https://github.com/herteleo/prodea/blob/main/LICENSE)
+[![license](https://img.shields.io/github/license/herteleo/prodea?style=flat)](https://github.com/herteleo/prodea/blob/main/LICENSE)
 
 > Manage multiple projects within a single git repository using worktrees. Designed for prototyping, learning and private projects.
 
