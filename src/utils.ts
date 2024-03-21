@@ -30,10 +30,27 @@ export async function whatNext({ projectPath, config }: { projectPath: string, c
   }
 }
 
-export const identifyProjectBranchRegex = /^[0-9]{3,}-/
+export const identifyProjectBranchRegex = /^(remotes\/[A-Za-z0-9-_]+\/)?(([0-9]{3,})-.*)/
 
 export function getProjectBranches(branches: Array<string>) {
-  return branches.filter(b => b.match(identifyProjectBranchRegex))
+  const allProjectBranches = branches.filter(b => b.match(identifyProjectBranchRegex))
+
+  allProjectBranches.sort((a, b) => {
+    const identA = a.match(identifyProjectBranchRegex)?.at(3) ?? ''
+    const identB = b.match(identifyProjectBranchRegex)?.at(3) ?? ''
+    return identA.localeCompare(identB)
+  })
+
+  const skipRemoteBranchesWithLocalEquivalent = allProjectBranches.reduce<Array<string>>((list, branch) => {
+    const localBranchName = branch.match(identifyProjectBranchRegex)?.at(2) ?? ''
+
+    if (!list.includes(localBranchName))
+      list.push(branch)
+
+    return list
+  }, [])
+
+  return skipRemoteBranchesWithLocalEquivalent
 }
 
 export async function isGitDir({ cwd }: { cwd: string }) {
