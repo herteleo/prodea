@@ -17,37 +17,21 @@
 
 ## Usage
 
-Create one or multiple git repositories, like "private-prototypes" or "business-prototypes". Have at least one commit in your repository.
-
-### Local Install
-
-If the root of your repository is always your current working directory.
+Create one or multiple git repositories, like "private-prototypes" or "business-prototypes". Have at least one commit in your repository. Then just execute in your repository:
 
 ```sh
-npm i prodea
-npx prodea --help
+npx prodea
 ```
 
-No further configuration needed.
-
-### Global Install
-
-Recommended. If you wish to access your prototypes from anywhere or manage multiple Prodea-flavored repositories.
+Optional: To access your Prodea-managed git repositories from everywhere `cd` into them to add them to the `~/.prodearc` config:
 
 ```sh
-npm i -g prodea
-prodea --help
-```
-
-`cd` into your Prodea-managed git repositories to add them to the `~/.prodearc` config:
-
-```sh
-prodea init
+npx prodea init
 ```
 
 ### Commands
 
-Excerpt of `prodea --help`
+Excerpt of `npx prodea --help`
 
 ```txt
   create    Create a new project branch (with a leading project-id)
@@ -59,20 +43,18 @@ Excerpt of `prodea --help`
 
 ### Example: Register git repository in Prodea
 
-Note: Prodea is installed globally.
-
 ```sh
 > cd /home/username/git/my-prototypes
-> prodea init
+> npx prodea init
 ✔ Added repository to prodea.
 ```
 
 ### Example: Create a Project Branch
 
-Note: Prodea is installed globally and multiple repositories are registered in Prodea.
+Note: Multiple repositories are registered in Prodea.
 
 ```sh
-> prodea create
+> npx prodea create
 
 ✔ Which Repo?
 /home/username/git/my-prototypes
@@ -98,7 +80,7 @@ code "/home/username/git/my-prototypes-worktrees/001-todo-list-with-js"
 Note: VSCode is registered as [custom command](#custom-commands).
 
 ```sh
-> prodea list
+> npx prodea list
 
 ✔ Select project
 001-todo-list-with-js
@@ -121,11 +103,11 @@ commands.0.path=code
 commands.1.path=idea.sh
 ```
 
-The global config file `~/.prodearc` contains the repository paths registered using `prodea init`.
+The global config file `~/.prodearc` contains the repository paths registered using `npx prodea init`.
 
 #### Custom Commands
 
-You can extend the file with `commands` which you can run within the `prodea create|list` commands ([see example above](#example-open-a-project-in-vscode-or-any-other-ide)).
+You can extend the file with `commands` which you can run within the `npx prodea create|list` commands ([see example above](#example-open-a-project-in-vscode-or-any-other-ide)).
 
 **Example: Open with VSCode**
 
@@ -168,6 +150,6 @@ Usually my prototypes and projects are not *that* complex. So I had the idea to 
 
 And that's where Prodea comes into play. While I could achieve all this without any extra tool, the Prodea CLI assists me in managing the worktrees, creating project branches, and find and open projects quickly. Prodea prepends an ascending three digit number to project branch names, inspired by Johnny Decimal, so I can have multiple branches with the same project name (to keep projects in sequence and to prevend naming collisions when I revisit the idea after some time and technic/tool switches).
 
-Now every time I have an idea I `prodea create` a new project branch, start tinkering and commit & push without regrets. *It's super handy to host tutorial related learning projects, too.* After some time, refinement, and if I decide to convert my project into a real one, I had enough time to cleanup the code and think about a *good* name. Then I just create a fresh repository, copy the files into it, hit push and call it a day. With Prodea I have a clean*ish* project start, don't loose any prototyping history, have no fear to commit mistakes or unfinished work, and have a more or less clean repository list.
+Now every time I have an idea I `npx prodea create` a new project branch, start tinkering and commit & push without regrets. *It's super handy to host tutorial related learning projects, too.* After some time, refinement, and if I decide to convert my project into a real one, I had enough time to cleanup the code and think about a *good* name. Then I just create a fresh repository, copy the files into it, hit push and call it a day. With Prodea I have a clean*ish* project start, don't loose any prototyping history, have no fear to commit mistakes or unfinished work, and have a more or less clean repository list.
 
 Maybe you'll find it useful too.
