@@ -12,7 +12,7 @@ async function getNextProjectNumber(git: SimpleGit) {
 
   const projectBranches = getProjectBranches(list.all)
 
-  const currentProjectNumber = projectBranches.map(b => Number(b.match(identifyProjectBranchRegex)?.at(3))).sort().at(-1) ?? 0
+  const currentProjectNumber = projectBranches.map(b => Number(b.match(identifyProjectBranchRegex)?.at(3))).sort((a, b) => b - a).at(0) ?? 0
   return String(currentProjectNumber + 1).padStart(3, '0')
 }
 
